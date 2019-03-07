@@ -27,10 +27,10 @@
     <!-- a js array to store all my Meme info -->
 		this.myMemes = [{
 			url: "https://media.tenor.com/images/45d9f7c7d8819cee96116ef94fee5a88/tenor.gif",
-			caption: "Welcome to Zooland!!!!"
+			caption: "Welcome to Zooland!! You are in the right place to learn wildlife!"
 		},{
 			url: "https://media.giphy.com/media/osK3oTtlITrmo/giphy.gif",
-			caption: "Well Done and you can add one more"
+			caption: "Well Done and you can add one more!!"
 		}];
 
 		this.remove = function(event) {
@@ -73,8 +73,14 @@
       width: 45%;
       height: 400px;
       border-radius: 50%;
-
     }
+		input, button {
+			border-radius: 50px;
+			background: white;
+			text: black;
+		}
+
+
 	</style>
 
 </parent-child>
