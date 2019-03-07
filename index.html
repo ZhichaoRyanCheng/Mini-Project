@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <title>Leopard and Gazelle</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body  >
+  <!-- place the custom tag anywhere inside the body -->
+  <audio controls autoplay loop>
+    <source src="rainforestmusic.wav" type="audio/wav">
+  </audio>
+
+  <div class="container">
+    <leopard></Leopard>
+    <gazelle></gazelle>
+    <croc></croc>
+    <parent-child></parent-child>
+  </div>
+
+
+  <!-- <human></human> -->
+
+  <script type="riot/tag" src="leopard.tag"></script>
+  <script type="riot/tag" src="gazelle.tag"></script>
+  <script type="riot/tag" src="human.tag"></script>
+  <script type="riot/tag" src="croc.tag"></script>
+  <script type="riot/tag" src="parent-child.tag"></script>
+  <!-- include riot.js -->
+  <script src="https://cdn.jsdelivr.net/npm/riot@3.8/riot+compiler.min.js"></script>
+  <!-- mount the tag -->
+  <script>
+  // Making the observable object accessible to all tags here.
+    var observable = riot.observable();
+    riot.mount('*');
+  </script>
+
+  <style>
+    :scope {
+      margin: auto;
+      padding: 10px;
+    }
+
+    leopard {
+      height:150px;
+      width: 50%;
+      /* background: red; */
+
+      float: left;
+      display: inline-block;
+    }
+
+    gazelle {
+
+      height:150px;
+      width: 50%;
+      /* border-radius: 30px; */
+      /* margin-left: 15%; */
+      /* background: black; */
+
+    }
+    croc {
+
+      height:150px;
+      width: 50%;
+
+
+    }
+
+    body {
+      text-align: center;
+      background-image:url(img/Africa.jpg);
+      background-size: 100%;
+    }
+  </style>
+
+</body>
+
+</html>
