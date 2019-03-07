@@ -27,7 +27,7 @@
     <!-- a js array to store all my Meme info -->
 		this.myMemes = [{
 			url: "https://media.tenor.com/images/45d9f7c7d8819cee96116ef94fee5a88/tenor.gif",
-			caption: "Welcome to Zooland!! You are in the right place to learn wildlife!"
+			caption: "Welcome to Zooland!! You are in the right place to learn wildlife!!!!"
 		},{
 			url: "https://media.giphy.com/media/osK3oTtlITrmo/giphy.gif",
 			caption: "Well Done and you can add one more!!"
@@ -78,6 +78,12 @@
 			border-radius: 50px;
 			background: white;
 			text: black;
+		}
+		h1 {
+		color: green;
+    font:20px;
+		font-family: fantasy;
+		font-weight: bold;
 		}
 
 
