@@ -35,6 +35,22 @@
   // Making the observable object accessible to all tags here.
     var observable = riot.observable();
     riot.mount('*');
+
+
+
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBomGU6ocKqt_O3d3QxeCJHsOblnRTUbpw",
+        authDomain: "mini-project-c21e6.firebaseapp.com",
+        databaseURL: "https://mini-project-c21e6.firebaseio.com",
+        projectId: "mini-project-c21e6",
+        storageBucket: "mini-project-c21e6.appspot.com",
+        messagingSenderId: "806455724790"
+      };
+      firebase.initializeApp(config);
+var datebase = firebase.datebase();
+var rootRef = database.ref('/');
+
   </script>
 
   <style>
@@ -74,6 +90,9 @@
       background-image:url(img/Africa.jpg);
       background-size: 100%;
     }
+
+<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+
   </style>
 
 </body>
