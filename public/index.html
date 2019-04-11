@@ -28,28 +28,32 @@
   <script type="riot/tag" src="human.tag"></script>
   <script type="riot/tag" src="croc.tag"></script>
   <script type="riot/tag" src="parent-child.tag"></script>
+  <script type="riot/tag" src="meme.tag"></script>
   <!-- include riot.js -->
   <script src="https://cdn.jsdelivr.net/npm/riot@3.8/riot+compiler.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.8.1/riot+compiler.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
   <!-- mount the tag -->
+
   <script>
   // Making the observable object accessible to all tags here.
     var observable = riot.observable();
-    riot.mount('*');
+    var config = {
+      apiKey: "AIzaSyBomGU6ocKqt_O3d3QxeCJHsOblnRTUbpw",
+      authDomain: "mini-project-c21e6.firebaseapp.com",
+      databaseURL: "https://mini-project-c21e6.firebaseio.com",
+      projectId: "mini-project-c21e6",
+      storageBucket: "mini-project-c21e6.appspot.com",
+      messagingSenderId: "806455724790"
+		};
+		firebase.initializeApp(config);
 
+		// Firebase Cached References
+		var database = firebase.database();
+		var rootRef = database.ref('/');
 
-
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBomGU6ocKqt_O3d3QxeCJHsOblnRTUbpw",
-        authDomain: "mini-project-c21e6.firebaseapp.com",
-        databaseURL: "https://mini-project-c21e6.firebaseio.com",
-        projectId: "mini-project-c21e6",
-        storageBucket: "mini-project-c21e6.appspot.com",
-        messagingSenderId: "806455724790"
-      };
-      firebase.initializeApp(config);
-var datebase = firebase.datebase();
-var rootRef = database.ref('/');
+		// Initialize RiotJS
+		riot.mount('*');
 
   </script>
 

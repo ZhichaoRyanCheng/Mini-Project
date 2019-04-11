@@ -9,31 +9,73 @@
 		<button type="button" onclick={ addMeme }>Add Meme</button>
 	</div>
 
-	<ol>
-		<div show={ myMemes.length == 0 }>
+	<meme each={ animal in memes }></meme>
+	<!-- <ol>
+		<!-- <div show={ myMemes.length == 0 }>
 			<p>NO MEMEs</p>
-		</div>
-		<ul each={ myMemes }>
+		</div> -->
+		<!-- <ul each={ myMemes }>
       <div>
         <img src={ url } alt="user image" />
         <h1>{ caption }</h1>
-      </div>
-			<button type="button" onclick={ parent.remove }>Remove Meme</button>
-		</li>
-	</ul>
+      </div> -->
+			<!-- <button type="button" onclick={ parent.remove }>Remove Meme</button> -->
+		<!-- </li> -->
+	<!-- </ul> -->
 
 
 	<script>
     <!-- a js array to store all my Meme info -->
-		this.myMemes = [{
+
+		var tag = this;
+
+		var memesRef = rootRef.child('memes');
+
+		this.memes = [];
+		this.captions = [];
+
+		this.addMeme = function(){
+			var key = memesRef.push().key;
+			console.log(key);
+
+			var animal = {
+				meme: this.refs.urlEl.value,
+				caption: this.refs.captionEl.value
+			};
+
+			memesRef.push(animal);
+		}
+
+		memesRef.on('value', function(snap){
+			let dataAsObj = snap.val();
+
+
+			var tempData = [];
+
+			//instead of statically typing out the array value, we now read it in
+			//from the firebase data obj using a js for loop structure
+			for (key in dataAsObj) {
+				tempData.push(dataAsObj[key]);
+			}
+
+			//finally, we copy this array back to our tag's property field
+			// console.log("myMemes", tag.myMemes);
+			tag.memes = tempData;
+
+			//same question, 4th time of encounter. Why do we need to call tag update here?
+			tag.update();
+		});
+		<!-- this.myMemes = [{
 			url: "https://media.tenor.com/images/45d9f7c7d8819cee96116ef94fee5a88/tenor.gif",
 			caption: "Welcome to Zooland!! You are in the right place to learn wildlife!!!!"
 		},{
 			url: "https://media.giphy.com/media/osK3oTtlITrmo/giphy.gif",
 			caption: "Well Done and you can add one more!!"
-		}];
+		}] -->
 
-		this.remove = function(event) {
+
+
+		<!-- this.remove = function(event) {
 		//console.log('EVENT:', event);
 		//console.log('EVENT.ITEM', event.item);
 
@@ -60,7 +102,7 @@
 			// RESET INPUTS
 			this.refs.urlEl.value = "";
 			this.refs.captionEl.value = "";
-		};
+		}; -->
 	</script>
 
 
